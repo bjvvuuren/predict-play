@@ -3,7 +3,8 @@
 Predictive Relational Evaluation of Demand for In-licensing Content Titles
 
 Student Name: Brandon Janse Van Vuuren
-Student Number: 
+
+Student Number: 26304758
 
 ## Business Motivation (Part A)
 
@@ -15,6 +16,8 @@ This project aims to address the gap in the content buying. It focusses on one k
 
 PREDICT-Play will enable acquisition teams to make data-driven decision about content which will eliminate wasteful spendature and become the backbone of the "Spend on content that earns its keep" strategic goal.
 
+It’s important to note that there is a heavy skew towards sport related content and that the content we have viewing data on is only based on streaming content. The recommendation here is to identify non-sports content and optimise that side of the content buying first. I also recommend the deployment of a recommendation system either in tandem or shortly after. 
+
 ## Problem Statement (Part B)
 
 
@@ -25,3 +28,52 @@ This wasteful expenditureis further exacerbated by licencing decisions that are 
 Establishing a method to optimise content aquisition will both cut unnecessary expenditure and tackle monthly subscriber churn as users find more meaningful content that they are likely to watch. 
 
 This project aims to build a machine-learning tool that will overlay a predicted likelihood to watch a specfic title in the acquisition catalogue.
+
+## Repository Structure (Part D)
+
+```text
+predict-play/
+├── docs/
+│   ├── Data_Request.pdf
+│   └── guides/
+├── modelling/
+│   ├── datasets/
+│   ├── evaluation/
+│   │   ├── experimental_setup.ipynb
+│   │   ├── experimental_results.ipynb
+│   │   └── statistical_helpers.ipynb
+│   ├── models/
+│   └── tuning/
+│       └── visualisation_notebook.ipynb
+├── predict-play/
+│   ├── __init__.py
+│   └── inference.py
+├── .gitignore
+└── README.md
+
+```
+### Artifact Mapping & Folder Descriptions
+
+* **`docs/`**: Houses all project documentation, operational guides, and the data request documentation.
+* **`modelling/`**: The core research, experimentation, and machine learning workspace:
+  * **`datasets/`**: Accommodates **Datasets** (raw streaming logs, processed search queries, and warehoused external tmdb metadata).
+  * **`models/`**: Accommodates **Models**.
+  * **`evaluation/`**: Accommodates testing, validation, and benchmarking:
+    * **Experimental setup**: Experiment configurations, train/validation split definitions, and testing scipts.
+    * **Experimental results**: Logged performance metrics, evaluation run outputs, and comparative benchmark data.
+    * **Statistical helper and comparison scripts**: Utility functions, hypothesis testing routines, and statistical evaluation scripts comparing model performance.
+  * **`tuning/`**: Accommodates hyperparameter optimization workflows:
+    * **Visualisation scripts**: Diagnostic plotting, EDA generation and relational graph visualization scripts.
+* **`predict-play/`**: Houses the deployable inference solution, service application code, and production pipelines.
+
+
+## RAAIDD Log (Part E)
+
+| RAAIDD | Description |
+| :--- | :--- |
+| RISKS | There are three  major risks I have identified. Firstly is an issue with data matching. The unavailability of accurate external TMDB metadata matching internal STADIOchoice title naming conventions poses a risk to getting related titles. The second is that even with aggregated events, training for this type of nonlinear data on 3 years of data may cause memory issues. Three NLP data is notorious for bad data quality for instance variance or slang in search queries may bypass a standard spelling correction pipeline.|
+| ACTIONS | We will take the following actions: implement a robust spelling correctiong on the search queries before matching them to the TMDB data, construct a relational network that maps watches, corrected searched and metadata. Train and compare two methods (R-GCN and Gradient Boosting) to evaluate the best trade-off between accuracy and compute costs.  |
+| ASSUMPTIONS | Here are the assumptions we are making: The TMDB data is accurate and relevant to the markets SC serves. The portion of unwatched content is due to a lack of interest not platform problems. Viewers use the search bar enough for us to estimate demand from that.  |
+| ISSUES | There are potential rate limits and API key aquisition works with TMDB |
+| DECISIONS | We will aggregate the event streaming by title and day. The way keeping it efficient while still having a point in time reference for the activity. We will evaluate a neural network (R-GCN) as well as decision tree (XGBoost) and compare them |
+| DEPENDENCIES | We will need access to the data per the data request document for the time periods specified therein.  Matching search queries to teh TMDB database will rely heavily on teh accuracy of the spelling corrections.|
