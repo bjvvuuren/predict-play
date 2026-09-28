@@ -78,6 +78,10 @@ predict-play/
 | DECISIONS | We will aggregate the event streaming by title and day. The way keeping it efficient while still having a point in time reference for the activity. We will evaluate a neural network (R-GCN) as well as decision tree (XGBoost) and compare them |
 | DEPENDENCIES | We will need access to the data per the data request document for the time periods specified therein.  Matching search queries to teh TMDB database will rely heavily on the accuracy of the spelling corrections.|
 
-## Modelling Workflow. 
+## Modelling Information. 
 1. [Preprocessing](https://github.com/bjvvuuren/predict-play/blob/main/docs/preprocessing.MD)
 2. [Feature Engineering](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/feature-engineering/FeatureEngineering.MD)
+
+## Modelling Notebooks
+1. [01_preprocessing.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/preprocessed_data/01_preprocessing.ipynb)
+2. [02_feature_engineering.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/feature-engineering/02_feature_engineering.ipynb)
