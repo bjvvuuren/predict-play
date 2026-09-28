@@ -33,25 +33,73 @@ This project aims to build a machine-learning tool that will overlay a predicted
 
 ```text
 predict-play/
+├── README.md
+│
 ├── docs/
-│   ├── Data_Request.pdf
-│   └── guides/
+│   ├── Data Request.pdf
+│   ├── Report.pdf
+│   ├── literature_review.md
+│   └── literature_review.pdf
+│
 ├── modelling/
+│   │
 │   ├── datasets/
-│   ├── evaluation/
-│   │   ├── experimental_setup.ipynb
-│   │   ├── experimental_results.ipynb
-│   │   └── statistical_helpers.ipynb
+│   │   │
+│   │   ├── preprocessed_data/
+│   │   │   ├── 01_preprocessing.ipynb
+│   │   │   ├── preprocessing.MD
+│   │   │   ├── acquisition_cat.csv
+│   │   │   ├── platform_catalogue.csv
+│   │   │   └── platform_title_outcomes.csv
+│   │   │
+│   │   └── feature-engineering/
+│   │       ├── 02_feature_engineering.ipynb
+│   │       ├── FeatureEngineering.MD
+│   │       ├── model_features.csv
+│   │       ├── genre_reference_stats.csv
+│   │       ├── rgcn_edges.csv
+│   │       └── rgcn_node_features.csv
+│   │
 │   ├── models/
+│   │   │
+│   │   ├── model_1/
+│   │   │   ├── 03_model_1.ipynb
+│   │   │   ├── Model1.MD
+│   │   │   └── outputs/
+│   │   │       ├── rgcn_catalogue_predictions.csv
+│   │   │       ├── rgcn_model_summary.csv
+│   │   │       ├── rgcn_training_history.csv
+│   │   │       ├── rgcn_tuning_predictions.csv
+│   │   │       ├── rgcn_calibrator.joblib
+│   │   │       └── rgcn_weights.pt
+│   │   │
+│   │   └── model_2/
+│   │       ├── 03_model_2.ipynb
+│   │       ├── Model2.MD
+│   │       └── output/
+│   │           ├── xgboost.ubj
+│   │           ├── xgboost_calibrator.joblib
+│   │           ├── xgboost_catalogue_predictions.csv
+│   │           ├── xgboost_model_summary.csv
+│   │           └── xgboost_tuning_predictions.csv
+│   │
+│   ├── evaluation/
+│   │   ├── 04_evaluation_model_1_rgcn.ipynb
+│   │   ├── 04_evaluation_model_2_xgboost.ipynb
+│   │   ├── Model1Performance.MD
+│   │   ├── Model2Performance.MD
+│   │   ├── Comparison.MD
+│   │   ├── rgcn_evaluation_predictions.csv
+│   │   ├── rgcn_model_metrics.csv
+│   │   ├── xgboost_evaluation_predictions.csv
+│   │   └── xgboost_model_metrics.csv
+│   │
 │   └── tuning/
-│       └── visualisation_notebook.ipynb
-├── predict-play/
-│   ├── __init__.py
-│   └── inference.py
-├── .gitignore
-└── README.md
+│       └── README.md
+│
+└── predict-play/
+    └── README.md
 
-```
 ### Artifact Mapping & Folder Descriptions
 
 * **`docs/`**: Houses all project documentation, operational guides, and the data request documentation.
@@ -78,14 +126,20 @@ predict-play/
 | DECISIONS | We will aggregate the event streaming by title and day. The way keeping it efficient while still having a point in time reference for the activity. We will evaluate a neural network (R-GCN) as well as decision tree (XGBoost) and compare them |
 | DEPENDENCIES | We will need access to the data per the data request document for the time periods specified therein.  Matching search queries to teh TMDB database will rely heavily on the accuracy of the spelling corrections.|
 
-## Modelling Information. 
-1. [Preprocessing](https://github.com/bjvvuuren/predict-play/blob/main/docs/preprocessing.MD)
+## Modelling Information
+
+1. [Preprocessing](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/preprocessed_data/preprocessing.MD)
 2. [Feature Engineering](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/feature-engineering/FeatureEngineering.MD)
-3. [Model 1](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_1/Model1.MD)
-4. [Model 2](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_2/Model2.MD)
+3. [Model 1 - R-GCN](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_1/Model1.MD)
+4. [Model 2 - XGBoost](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_2/Model2.MD)
+5. [Model 1 Performance - R-GCN](https://github.com/bjvvuuren/predict-play/blob/main/modelling/evaluation/Model1Performance.MD)
+6. [Model 2 Performance - XGBoost](https://github.com/bjvvuuren/predict-play/blob/main/modelling/evaluation/Model2Performance.MD)
+7. [Model Comparison](https://github.com/bjvvuuren/predict-play/blob/main/modelling/evaluation/Comparison.MD)
 
 ## Modelling Notebooks
 1. [01_preprocessing.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/preprocessed_data/01_preprocessing.ipynb)
 2. [02_feature_engineering.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/feature-engineering/02_feature_engineering.ipynb)
-3. [03_model_1.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_1/03_model_1.ipynb)
-4. [03_model_2](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_2/03_model_2.ipynb)
+3. [03_model_1.ipynb - R-GCN](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_1/03_model_1.ipynb)
+4. [03_model_2.ipynb - XGBoost](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_2/03_model_2.ipynb)
+5. [04_evaluation_model_1_rgcn.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/evaluation/04_evaluation_model_1_rgcn.ipynb)
+6. [04_evaluation_model_2_xgboost.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/evaluation/04_evaluation_model_2_xgboost.ipynb)
