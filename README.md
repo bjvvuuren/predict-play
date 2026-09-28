@@ -81,7 +81,9 @@ predict-play/
 ## Modelling Information. 
 1. [Preprocessing](https://github.com/bjvvuuren/predict-play/blob/main/docs/preprocessing.MD)
 2. [Feature Engineering](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/feature-engineering/FeatureEngineering.MD)
+3. [Model 1](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_1/Model1.MD)
 
 ## Modelling Notebooks
 1. [01_preprocessing.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/preprocessed_data/01_preprocessing.ipynb)
 2. [02_feature_engineering.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/datasets/feature-engineering/02_feature_engineering.ipynb)
+3. [03_model_1.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_1/03_model_1.ipynb)
