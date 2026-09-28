@@ -1,0 +1,2 @@
+model,tuning_average_precision,training_seconds
+XGBoost,0.47414984197276033,6.2869601379999835
