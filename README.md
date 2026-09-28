@@ -77,3 +77,6 @@ predict-play/
 | ISSUES | There are potential rate limits and API key aquisition works with TMDB |
 | DECISIONS | We will aggregate the event streaming by title and day. The way keeping it efficient while still having a point in time reference for the activity. We will evaluate a neural network (R-GCN) as well as decision tree (XGBoost) and compare them |
 | DEPENDENCIES | We will need access to the data per the data request document for the time periods specified therein.  Matching search queries to teh TMDB database will rely heavily on teh accuracy of the spelling corrections.|
+
+## Modelling Workflow. 
+1. [Preprocessing](https://github.com/bjvvuuren/predict-play/blob/main/docs/preprocessing.MD)
