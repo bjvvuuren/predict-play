@@ -144,3 +144,6 @@ predict-play/
 4. [03_model_2.ipynb - XGBoost](https://github.com/bjvvuuren/predict-play/blob/main/modelling/models/model_2/03_model_2.ipynb)
 5. [04_evaluation_model_1_rgcn.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/evaluation/04_evaluation_model_1_rgcn.ipynb)
 6. [04_evaluation_model_2_xgboost.ipynb](https://github.com/bjvvuuren/predict-play/blob/main/modelling/evaluation/04_evaluation_model_2_xgboost.ipynb)
+
+## Video Presentation
+[Video Presentation](https://youtu.be/9nodQeX0slw)
